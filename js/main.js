@@ -14,3 +14,11 @@ $(window).scroll(()=>{
 		$("nav.scroll-visible").removeClass("show");
 	}
 })
+
+$(".cta").click(()=>{
+	console.log("click");
+
+	$('html, body').animate({
+		scrollTop: $("header").height()
+	}, 200, 'linear');
+})

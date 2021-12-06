@@ -26,8 +26,9 @@
 
 .sobre-el-hotel {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: black;
+  line-height: 1.5;
 }
 
 .sobre-el-hotel, p.text {
@@ -38,14 +39,18 @@
   margin-left: 1rem;
 }
 
+.container {
+  min-width: 320px;
+}
+
 nav.scroll-visible {
   position: fixed;
   top: -500px;
   background-color: white;
-  color: white;
+  color: black;
   border-bottom: none;
   box-shadow: 2px 0px 11px #b7b7b7;
-  background-color: #3f51b5;
+  background-color: white;
 }
 
 nav.scroll-visible .menu {
@@ -75,16 +80,18 @@ nav.scroll-visible.show {
   transition: 1s ease;
 }
 .nav-container.scroll-visible .nav .navigation-links .link a {
-  color: white;
+  color: black;
 }
 .nav-container .nav {
   padding: 0.75rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1090px;
+  margin: 0 auto;
 }
 .nav-container .nav .navigation-links {
-  display: flex;
+  display: none;
 }
 .nav-container .nav .navigation-links a {
   margin-left: 0.5rem;
@@ -98,7 +105,7 @@ nav.scroll-visible.show {
   content: "";
   width: 0px;
   height: 10px;
-  background-color: red;
+  background-color: #2f3f56;
   position: absolute;
   left: 0;
   top: 100%;
@@ -108,6 +115,17 @@ nav.scroll-visible.show {
   width: 100%;
 }
 
+@media only screen and (min-width: 1150px) {
+  .nav-container .nav {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .nav-container .nav .navigation-links {
+    display: flex;
+  }
+}
 header {
   width: 100%;
   height: 100vh;
@@ -128,6 +146,13 @@ header img {
   object-position: center;
   filter: opacity(0.7);
 }
+header .landing-text-section {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  max-width: 1090px;
+}
 header .landing-title {
   position: absolute;
   top: 50%;
@@ -135,8 +160,24 @@ header .landing-title {
   font-size: 3.3rem;
   padding: 0 2rem;
 }
+header .landing-title .cta {
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  border: 3.5px solid #3f51b5;
+  background: none;
+  padding: 0.75rem 2rem;
+  font-weight: 400;
+  color: black;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+header .landing-title .cta:hover {
+  background-color: #3f51b5;
+  color: white;
+}
 header .text-section {
-  background-color: #3540b6;
+  background-color: #2f3f56;
   color: white;
   padding: 2.5rem 0.75rem;
 }
@@ -162,7 +203,7 @@ header .text-section p {
 }
 @media only screen and (orientation: landscape) and (min-width: 900px) {
   header .landing-title {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 }
 main {
@@ -173,6 +214,22 @@ main > * {
   padding: 0 1rem;
 }
 
+@media only screen and (min-width: 700px) {
+  main > * {
+    padding: 2.5rem;
+  }
+  main .tarifas-section .big-title, main .form-section .big-title, main .map-section .big-title {
+    margin-left: 2.5rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  main > * {
+    padding: 0rem;
+  }
+  main .tarifas-section .big-title, main .form-section .big-title, main .map-section .big-title {
+    margin-left: 0rem;
+  }
+}
 section.bullet-points {
   margin-top: 4rem;
 }
@@ -382,7 +439,7 @@ section.map-section {
 
 footer {
   padding: 0;
-  background-color: #3a3a3a;
+  background-color: #2f3f56;
 }
 footer .inside-footer {
   padding: 2rem 1rem;

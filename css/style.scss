@@ -13,7 +13,7 @@
   position: relative;
 }
 
-$main-color: #3540b6;
+$main-color: #2f3f56;
 $cntnr-pad: 1rem 2rem;
 $sm-pad: 0 1rem;
 $max-w: 1090px;
@@ -32,8 +32,10 @@ $def-marg: 0 auto;
 
 .sobre-el-hotel{
 	font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     color: black;
+    line-height: 1.5;
+
 }
 
 .sobre-el-hotel, p.text{
@@ -46,14 +48,18 @@ $def-marg: 0 auto;
 	}
 }
 
+.container{
+	min-width: 320px;
+}
+
 nav.scroll-visible {
   position: fixed;
   top: -500px;
   background-color: white;
-  color: white;
+  color: black;
   border-bottom: none;
   box-shadow: 2px 0px 11px #b7b7b7;
-  background-color: #3f51b5;
+  background-color: white;
 }
 nav.scroll-visible .menu {
   background-color: white;
@@ -83,7 +89,7 @@ nav.scroll-visible.show {
 
 	&.scroll-visible{
 		.nav .navigation-links .link a{
-			color: white;
+			color: black;
 		}
 	}
 
@@ -92,11 +98,13 @@ nav.scroll-visible.show {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		max-width: 1090px;
+		margin: 0 auto;
 
 
 
 		.navigation-links{
-			display: flex;
+			display: none;
 
 			a{
 				margin-left: .5rem;
@@ -111,7 +119,7 @@ nav.scroll-visible.show {
 			    	content: "";
 			    	width: 0px;
 			    	height: 10px;
-			    	background-color: red;
+			    	background-color: $main-color;
 			    	position: absolute;
 			    	left: 0;
 			    	top: 100%;
@@ -123,6 +131,18 @@ nav.scroll-visible.show {
 		div.link:hover a::after{
 			width: 100%;
 		}
+	}
+}
+
+@media only screen and (min-width: 1150px){
+	.nav-container .nav{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+@media only screen and (min-width: 600px){
+	.nav-container .nav .navigation-links{
+		display: flex;
 	}
 }
 
@@ -150,12 +170,38 @@ header{
 		filter: opacity(0.7);
 	}
 
+	.landing-text-section{
+		position: absolute;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    width: 100%;
+	    max-width: 1090px;
+	}
+
 	.landing-title{
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
 		font-size: 3.3rem;
 		padding: 0 2rem;
+
+		.cta{
+			display: block;
+		    font-size: 1.5rem;
+		    margin-top: 2rem;
+		    border: 3.5px solid #3f51b5;
+		    background: none;
+		    padding: .75rem 2rem;
+		    font-weight: 400;
+		    color: black;
+		    transition: .3s ease;
+		    cursor: pointer;
+
+		    &:hover{
+		    	background-color: #3f51b5;
+		    	color: white;
+		    }
+		}
 	}
 
 	.text-section{
@@ -190,7 +236,7 @@ header{
 @media only screen and (orientation: landscape) and (min-width: 900px){
 	header{
 		.landing-title{
-			font-size: 5rem;
+			font-size: 4rem;
 		}
 	}
 }
@@ -201,6 +247,30 @@ main{
 
 	&>*{
 		padding: $sm-pad;
+	}
+}
+
+@media only screen and (min-width: 700px){
+	main{
+		&>*{
+			padding: 2.5rem;
+		}
+
+		.tarifas-section .big-title, .form-section .big-title, .map-section .big-title{
+			margin-left: 2.5rem;
+		}
+	}
+}
+
+@media only screen and (min-width: 1200px){
+	main{
+		&>*{
+			padding: 0rem;
+		}
+
+		.tarifas-section .big-title, .form-section .big-title, .map-section .big-title{
+			margin-left: 0rem;
+		}
 	}
 }
 
@@ -444,7 +514,7 @@ section.map-section{
 
 footer{
 	padding: 0;
-	background-color: #3a3a3a;
+	background-color: $main-color;
 
 	.inside-footer{
 		padding: 2rem 1rem;
