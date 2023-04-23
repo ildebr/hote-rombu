@@ -13,6 +13,22 @@
   position: relative;
 }
 
+:root {
+  --main-header-height: 88vh;
+  --text-color: #2b2b2b;
+  --color-background-dark: #222223;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  color: var(--text-color);
+}
+
+p {
+  font-family: "Lato", sans-serif;
+  color: var(--text-color);
+}
+
 @font-face {
   font-family: "Lato-Bold";
   src: url(../fonts/Lato-Bold.ttf);
@@ -61,6 +77,9 @@ nav.scroll-visible .menu {
 nav.scroll-visible.show {
   top: 0;
 }
+nav.scroll-visible.show h2 {
+  color: black;
+}
 
 @media only screen and (min-width: 600px) {
   .big-title {
@@ -94,11 +113,12 @@ nav.scroll-visible.show {
   display: none;
 }
 .nav-container .nav .navigation-links a {
-  margin-left: 0.5rem;
-  color: black;
+  margin-left: 1rem;
+  color: white;
   text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1.1rem;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-family: "Playfair Display", serif;
   transition: 1s ease;
 }
 .nav-container .nav .navigation-links a::after {
@@ -110,6 +130,9 @@ nav.scroll-visible.show {
   left: 0;
   top: 100%;
   transition: 0.3s ease-out;
+}
+.nav-container .nav h2 {
+  color: white;
 }
 .nav-container .nav div.link:hover a::after {
   width: 100%;
@@ -126,13 +149,39 @@ nav.scroll-visible.show {
     display: flex;
   }
 }
+@keyframes header-img {
+  0% {
+    background-image: url(../img/roraima.png);
+  }
+  30% {
+    background-image: url(../img/28_6_18_portada_2.jpg);
+  }
+  60% {
+    background-image: url(../img/aliviadero_del_embalse_macagua.webp);
+  }
+}
 header {
   width: 100%;
-  height: 100vh;
+  height: var(--main-header-height);
   max-width: 2000px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .hero-header {
+  width: 100%;
+  height: var(--main-header-height);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../img/avila-vertical.jpg);
+  background-size: cover;
+  background-position: 0 0;
+  filter: brightness(0.7);
 }
 header picture {
   overflow: hidden;
@@ -146,35 +195,12 @@ header img {
   object-position: center;
   filter: opacity(0.7);
 }
-header .landing-text-section {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  max-width: 1090px;
-}
 header .landing-title {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3.3rem;
-  padding: 0 2rem;
-}
-header .landing-title .cta {
-  display: block;
-  font-size: 1.5rem;
-  margin-top: 2rem;
-  border: 3.5px solid #3f51b5;
-  background: none;
-  padding: 0.75rem 2rem;
-  font-weight: 400;
-  color: black;
-  transition: 0.3s ease;
-  cursor: pointer;
-}
-header .landing-title .cta:hover {
-  background-color: #3f51b5;
   color: white;
+  text-align: center;
+  font-family: "Playfair Display", sans-serif;
+  position: fixed;
+  transform: translateX(-50%) translateY(-50%);
 }
 header .text-section {
   background-color: #2f3f56;
@@ -188,6 +214,17 @@ header .text-section h1 {
 header .text-section p {
   font-size: 1.4rem;
 }
+header .arrow {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+header .arrow .arrow-img {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
 
 @media only screen and (orientation: landscape) {
   header {
@@ -199,6 +236,10 @@ header .text-section p {
   }
   header .text-section {
     padding: 1.5rem 0.5rem;
+  }
+  header .hero-header {
+    background-image: url(../img/Altamira,_La_Castellana_en_Caracas,_Venezuela.jpg);
+    background-position: bottom;
   }
 }
 @media only screen and (orientation: landscape) and (min-width: 900px) {
@@ -228,6 +269,200 @@ main > * {
   }
   main .tarifas-section .big-title, main .form-section .big-title, main .map-section .big-title {
     margin-left: 0rem;
+  }
+}
+.img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.bienvenidos .bienvenidos-main-text {
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+.bienvenidos .bienvenidos-main-text > * {
+  max-width: 540px;
+  text-align: center;
+  margin: 0 auto;
+}
+.bienvenidos .bienvenidos-main-text h2 {
+  margin-bottom: 2rem;
+  font-size: 32px;
+}
+.bienvenidos .bienvenidos-main-text p {
+  font-size: 18px;
+}
+.bienvenidos .img {
+  height: 600px;
+}
+.bienvenidos .bienvenidos-img-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+.bienvenidos .bienvenidos-img-container .img {
+  width: 100%;
+  /* height: 300px; */
+  /* max-height: 100%; */
+  object-fit: cover;
+  /* height: 300px; */
+  height: 100%;
+}
+
+.lugar h2 {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 950px) {
+  .lugar {
+    display: grid;
+    grid-template-columns: 35% auto;
+    margin: 3rem 0;
+  }
+  .lugar .lugar-text-section {
+    margin-left: 3rem;
+    padding-top: 4rem;
+  }
+  .lugar .lugar-text-section h2 {
+    font-size: 6rem;
+    margin-left: -5rem;
+  }
+  .lugar .lugar-text-section p {
+    margin-bottom: 1rem;
+  }
+  .lugar .lugar-text-section p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+.habitaciones .habitaciones-card-container {
+  padding: 1rem 0;
+  overflow: hidden;
+  width: calc(100vw - 2rem);
+  margin-left: -1rem;
+}
+.habitaciones .habitaciones-card-container .habitacion-card-hero {
+  display: flex;
+  margin-top: 1rem;
+  transition: 0.5s ease-in-out;
+}
+.habitaciones .habitaciones-card-container .habitacion-card {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-right: 1rem;
+}
+.habitaciones .habitaciones-card-container .habitacion-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  width: calc(100vw - 2rem);
+}
+.habitaciones .habitaciones-card-container .habitacion-card .habitacion-card-text {
+  padding: 20px;
+}
+.habitaciones .habitaciones-card-container .habitacion-card .habitacion-card-text h3 {
+  padding: 16px 0;
+}
+.habitaciones .habitaciones-card-container .carrousell-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.habitaciones .habitaciones-card-container .carrousell-arrow#next {
+  right: 1rem;
+}
+.habitaciones .habitaciones-card-container .carrousell-arrow#previous {
+  left: 1rem;
+}
+
+@media (min-width: 701px) {
+  .habitaciones .habitaciones-card-container {
+    width: calc(100vw - 6rem);
+    margin-left: 0;
+  }
+  .habitaciones .habitaciones-card-container .habitacion-card-hero {
+    margin-left: 0px;
+    padding: 4rem;
+  }
+  .habitaciones .habitaciones-card-container .habitacion-card {
+    position: absolute;
+    box-shadow: none;
+    width: calc(100% - 8rem);
+  }
+  .habitaciones .habitaciones-card-container .habitacion-card img {
+    width: 100%;
+  }
+  .habitaciones .habitaciones-card-container .habitacion-card:first-of-type {
+    position: relative;
+    width: 100%;
+  }
+  .habitaciones .habitaciones-card-container .habitacion-card-text, .habitaciones .habitaciones-card-container .carrousell-arrow {
+    display: none;
+  }
+}
+@media (min-width: 701px) and (max-width: 949px) {
+  .habitaciones aside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    grid-gap: 1rem;
+    padding-top: 2rem;
+  }
+  .habitaciones aside .name:hover {
+    color: black;
+    cursor: pointer;
+  }
+  .habitaciones aside .name:hover p {
+    color: black;
+    font-weight: 600;
+  }
+}
+@media (min-width: 950px) {
+  .habitaciones {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .habitaciones .habitaciones-title {
+    grid-row: 1;
+    grid-column: 1/-1;
+  }
+  .habitaciones .name-section {
+    grid-row: 2;
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .habitaciones .name-section .name p {
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .habitaciones .name-section .name p:hover {
+    color: black;
+  }
+  .habitaciones .habitaciones-card-container {
+    grid-row: 2;
+    grid-column: 2/-1;
+    width: 100%;
+  }
+  .habitaciones .habitacion-card {
+    opacity: 0;
+    transition: 0.5s ease-out;
+  }
+  .habitaciones .habitacion-card.display {
+    opacity: 1;
+  }
+}
+@media (min-width: 701px) {
+  .habitaciones .habitacion-card {
+    opacity: 0;
+    transition: 0.5s ease-out;
+  }
+  .habitaciones .habitacion-card.display {
+    opacity: 1;
   }
 }
 section.bullet-points {
@@ -376,7 +611,7 @@ section.contact-us .tarifas-section .tarifa .tarifa-text {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #3f51b596;
+  background: rgba(63, 81, 181, 0.5882352941);
   color: white;
   font-size: 1.7rem;
   font-weight: 600;
@@ -439,10 +674,10 @@ section.map-section {
 
 footer {
   padding: 0;
-  background-color: #2f3f56;
+  background-color: var(--color-background-dark);
 }
 footer .inside-footer {
-  padding: 2rem 1rem;
+  padding: 6rem 1rem;
   color: white;
 }
 footer .inside-footer .sobre-mi {
@@ -451,6 +686,76 @@ footer .inside-footer .sobre-mi {
 footer .inside-footer .sobre-mi-contactame p a.redes-link {
   text-decoration: none;
   color: white;
+}
+footer p, footer h2 {
+  color: white;
+}
+footer h2 {
+  font-size: 2.5rem;
+  font-weight: 100;
+}
+footer form input {
+  width: 100%;
+  display: block;
+  background-color: var(--color-background-dark);
+  color: white;
+}
+footer form input[type=text], footer form input[type=email] {
+  border: none;
+  padding: 1rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid rgb(228, 228, 228);
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+}
+footer form input[type=text]:focus, footer form input[type=email]:focus {
+  outline-color: transparent;
+  background-color: var(--color-background-dark);
+  outline: none;
+}
+footer form input[type=submit] {
+  background-color: black;
+  border: none;
+  color: white;
+  border-radius: 1px solid black;
+  padding: 1rem 1rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+footer form label {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+footer form .input-placeholder {
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+  left: 1rem;
+  transition: 0.3s ease;
+  color: rgb(182, 182, 182);
+  color: white;
+  pointer-events: none;
+}
+footer form input:focus + span, footer form input.username__input:valid + span {
+  bottom: 100%;
+  font-size: 55%;
+  font-weight: 400;
+}
+footer form button {
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 1rem 2rem;
+  font-family: "Lato", sans-serif;
+  color: white;
+  font-size: 1rem;
+}
+footer .sobre-mi-contactame h2 {
+  margin-bottom: 1rem;
+}
+footer .sobre-mi-contactame .group {
+  margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 1090px) {
@@ -468,6 +773,28 @@ footer .inside-footer .sobre-mi-contactame p a.redes-link {
   footer .inside-footer .sobre-mi-contactame {
     grid-column: 3/4;
   }
+}
+@keyframes loader {
+  from {
+    top: 0;
+  }
+  to {
+    top: -100vh;
+  }
+}
+.loader {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+  animation: loader 1s ease-out forwards 2s;
 }
 
 /*# sourceMappingURL=style.css.map */

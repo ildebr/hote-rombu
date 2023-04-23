@@ -14,22 +14,33 @@
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script defer src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+<script defer src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<!-- references
+https://sonbrull.com/
+https://www.hoteldeshorlogers.com/en
+https://poesishotel.it/ -->
 </head>
 <body>
+
+	<div class="loader">
+		<h1>Rombu</h1>
+	</div>
+
 	<div class="container">
 		<nav class="nav-container">
 			<div class="nav">
 				<h2>Rombu</h2>
 				<div class="navigation-links">
 					<div class="link">
-						<a href="#">Inicio</a>
+						<a href="#">Restaurante</a>
 					</div>
 					<div class="link">
-						<a href="#">Hotel</a>
-					</div>
-					<div class="link">
-						<a href="#">Galeria</a>
+						<a href="#">Habitaciones</a>
 					</div>
 				</div>
 			</div>
@@ -40,36 +51,137 @@
 				<h2>Rombu</h2>
 				<div class="navigation-links">
 					<div class="link">
-						<a href="#">Inicio</a>
+						<a href="#">Restaurante</a>
 					</div>
 					<div class="link">
-						<a href="#">Hotel</a>
-					</div>
-					<div class="link">
-						<a href="#">Galeria</a>
+						<a href="#">Habitaciones</a>
 					</div>
 				</div>
 				</div>
 			
 		</nav>
 
-		<header>
-			<picture>
+		<header class="website-header">
+			<!-- <picture>
 				<source media="(max-width:450px)" srcset="img/meru2.jpg">
 				<source media="(max-width:800px)" srcset="img/aliviadero_del_embalse_macagua.webp">
 
 				<img src="img/1-1.png">
-			</picture>
+			</picture> -->
 
+			<div class="hero-header"></div>
 			<div class="landing-text-section">
-				<h1 class="landing-title">Tu mejor escape en la ciudad
-				<button class="cta">Descubre mas</button>
+				<h1 class="landing-title">TU NUEVO LUGAR DE DESCANSO FAVORITO
 				</h1>
 
+			</div>
+
+			<div class="arrow">
+				<img src="img/arrow.svg" class="arrow-img" alt="">
 			</div>
 		</header>
 
 		<main>
+			<section class="bienvenidos">
+				<div class="bienvenidos-main-text">
+					<h2>Bienvenido al hotel Rombu</h2>
+				<p>Bienvenido al hotel Rombu, un lugar para conectar con la naturaleza, hacer tiempo para ti y las cosas que importan</p>
+				</div>
+
+				<div class="bienvenidos-img-container">
+					<img src="img/hotel.webp" alt="hotel" class="img">
+				</div>
+			</section>
+
+			<section class="lugar">
+				<div class="lugar-img-section">
+					<img src="img/SaltoAngel4.jpg" alt="" class="img">
+
+				</div>
+				<div class="lugar-text-section">
+					<h2>El lugar donde todo se detiene</h2>
+					<p>Santuario del lujo relajado,  de 5 estrellas en Ciudad Guayana. .
+
+						Rodeado de 32 hectáreas de viña, huerto y olivos centenarios, con buena ubicacion desde el cual puedes visitar Canaima, El Salto Angel, El parque La Llovizna y muchas otras atracciones. </p>
+						<p>El lugar perfecto para unas vacaciones familiares, contamos con piscina, entretenimiento, restaurante y bar</p>
+				</div>
+			</section>
+
+
+			<section class="habitaciones">
+				<h2 class="habitaciones-title">Duerme en una de las habitaciones de nuestro hotel</h2>
+
+				<aside class="name-section">
+					<div class="name" id="superior">
+						<p>Superior</p>
+					</div>
+					<div class="name" id="duplex-superior">
+						<p>Duplex Superior</p>
+					</div>
+					<div class="name" id="deluxe">
+						<p>Deluxe</p>
+					</div>
+					<div class="name" id="duplex-deluxe">
+						<p>Duplex Deluxe</p>
+					</div>
+				</aside>
+
+				<div class="habitaciones-card-container">
+
+					<svg class="carrousell-arrow" id="previous" width="14" height="24" viewBox="0 0 14 24" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.4" points="12.775,1 1.225,12 12.775,23 "></polyline></svg>
+					<svg class="carrousell-arrow" id="next" width="14" height="24" viewBox="0 0 14 24" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.4" points="1.225,23 12.775,12 1.225,1 "></polyline></svg>
+					<div class="habitacion-card-hero">
+						<div class="habitacion-card display" id="superior">
+							<img src="img/superior.webp" alt="	" >
+	
+							<div class="habitacion-card-text" >
+								<h3>Superior</h3>
+								<p>Todo lo necesario para 2</p>
+							</div>
+						</div>
+						<div class="habitacion-card" id="duplex-superior">
+							<img src="img/duplex-superior.jpg" alt="	">
+	
+							<div class="habitacion-card-text">
+								<h3>Duplex Superior</h3>
+								<p>Todo lo necesario para dos en duplex</p>
+							</div>
+						</div>
+						<div class="habitacion-card" id="deluxe">
+							<img src="img/deluxe.jpg" alt="	">
+	
+							<div class="habitacion-card-text">
+								<h3>Deluxe</h3>
+								<p>Mas espacio para disfrutar</p>
+							</div>
+						</div>
+						<div class="habitacion-card" id="duplex-deluxe">
+							<img src="img/duplex-deluxe.jpg" alt="	">
+	
+							<div class="habitacion-card-text">
+								<h3>Duplex Deluxe</h3>
+								<p>Mas espacio para disfrutar en duplex</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- <section class="actividades">
+				<h2>Mantente activo</h2>
+
+				<div class="actividades-container">
+					<div class="actividad">
+						<img src="" alt="">
+						<div class="actividad-text">
+							<h3>Golf</h3>
+
+							<p>Tarifas preferentes en Golf Pollensa y Club de Golf Alcanada.</p>
+						</div>
+					</div>
+				</div>
+			</section> -->
+
 			<section class="bullet-points">
 				<h2 class="big-title">Lo que dicen nuestros clientes</h2>
 				<div class="bullets" >
@@ -98,23 +210,9 @@
 				</div>
 			</section>
 
-			<section class="nuestros-espacios">
-			<h2 class="big-title">Nuestras instalaciones</h2>
-			<p class="sobre-el-hotel">En el hotel Rombu podra disfrutar de los mejores epsacios especialmente diseñados para que se relaje usted y su familia. Tenemos un gran recorrido ofreciendo espacios para eventos como fiestas, bodas o lo que tengas planeado.</p>
-				<div class="espacios-imagenes">
-					<img src="img/50.jpg" class="colla">
-					<img src="img/dbb65df7b95ec29553c10fdfb57b08c3.jpg" class="colla">
-					<img src="img/paredes-roca-roraima.jpg" class="colla">
-					<img src="img/Cte_cachamay_aereo.jpg" class="colla">
-					<img src="img/aliviadero_del_embalse_macagua.webp" class="colla">
-					<img src="img/28_6_18_portada_2.jpg" class="colla">
-				</div>
-			</section>
 
 
-
-
-			<section class="contact-us">
+			<!-- <section class="contact-us">
 				<div class="info">
 					
 
@@ -155,7 +253,7 @@
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> -->
 
 			<section class="map-section">
 				<h2 class="big-title">Ubicanos</h2>
@@ -168,19 +266,38 @@
 		<footer>
 			<div class="inside-footer">
 				<div class="sobre-mi">
-					<h2>Sobre la pagina</h2>
-					<p>Pagina hecha como muestra de diseño web de una pagina para un hotel, estoy disponible para contrataciones y sientete libre de contactarme en mis redes para consultar precios.</p>
+					<h2>Newsletter</h2>
+					<form>
+						<label for="username">
+							<input type="text" name="username" class="username__input" required="" fdprocessedid="kfgij">
+							<span class="input-placeholder">INTRODUCE TU NOMBRE</span>
+						</label>
+						<label for="text">
+							<input type="text" name="email" class="username__input" required="" fdprocessedid="kfgij">
+							<span class="input-placeholder">INTRODUCE TU CORREO</span>
+						</label>
+						<button>
+							SUSCRIBETE
+						</button>
+					</form>
 				</div>
 				<div class="sobre-mi-contactame">
 					<h2>Contacto:</h2>
-					<p>Correo: ildebrandoefrain@gmail.com</p>
-					<p>Github: <a class="redes-link" href="https://ildebr.github.io/">ildebr</a></p>
-					<p>LinkedIn: <a class="redes-link"  href="https://www.linkedin.com/in/ildebrando-quinchoa-5a6343219">Ildebrando</a></p>
+					<div class="group">
+						<p>CALLE RAMONA, 24</p>
+					<p>BUCAREST</p>
+					</div>
+
+					<p>(+205) 123 456 789</p>
+					<p>INFO@ROMBU.COM</p>
+					<P>RRRHH@ROMBU.COM</P>
 				</div>
 			</div>
 		</footer>
 	</div>
 	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+	<script src="https://assets.codepen.io/16327/ScrollTrigger.min.js"></script>
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script src="js/main.js">
 		

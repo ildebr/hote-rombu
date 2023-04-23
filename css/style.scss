@@ -19,6 +19,22 @@ $sm-pad: 0 1rem;
 $max-w: 1090px;
 $def-marg: 0 auto;
 
+:root{
+	--main-header-height: 88vh;
+	--text-color: #2b2b2b;
+	--color-background-dark: #222223;
+}
+
+h2{
+	font-family: "Playfair Display", serif;
+	color: var(--text-color);
+}
+
+p{
+	font-family: "Lato", sans-serif;
+	color: var(--text-color);
+}
+
 @font-face{
 	font-family: 'Lato-Bold';
 	src: url(../fonts/Lato-Bold.ttf);
@@ -67,6 +83,10 @@ nav.scroll-visible .menu {
 }
 nav.scroll-visible.show {
   top: 0;
+
+  h2{
+	color: black;
+  }
 }
 
 @media only screen and (min-width: 600px){
@@ -107,11 +127,12 @@ nav.scroll-visible.show {
 			display: none;
 
 			a{
-				margin-left: .5rem;
-				color: black;
+				margin-left: 1rem;
+				color: white;
 			    text-decoration: none;
-			    text-transform: uppercase;
-			    font-size: 1.1rem;
+			    text-transform: capitalize;
+			    font-size: 16px;
+				font-family: "Playfair Display", serif;
 			    transition: 1s ease;
 
 
@@ -126,6 +147,9 @@ nav.scroll-visible.show {
 			    	transition: .3s ease-out;
 			    }  
 			 }
+		}
+		h2{
+			color: white;
 		}
 
 		div.link:hover a::after{
@@ -146,16 +170,49 @@ nav.scroll-visible.show {
 	}
 }
 
+@keyframes header-img {
+	0%{
+		background-image: url(../img/roraima.png);
+		// background-position: 0 -50px;
+	}
+
+	30%{
+		background-image: url(../img/28_6_18_portada_2.jpg);
+		// background-position: -15px -20px;
+	}
+
+	60%{
+		background-image: url(../img/aliviadero_del_embalse_macagua.webp);
+		// background-position: -10px 0;
+	}
+}
+
 header{
 	width: 100%;
-	height: 100vh;
-	
-
+	height: var(--main-header-height);
 	max-width: 2000px;
 	margin: $def-marg;
 	display: flex;
 	justify-content: center;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
+	.hero-header{
+		width: 100%;
+	height: var(--main-header-height);
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url(../img/avila-vertical.jpg);
+	background-size: cover;
+	background-position: 0 0;
+	
+	// animation: header-img 8s steps(1, start) 3s infinite;
+	filter: brightness(.7);
+	}
+	
 	picture{
 		overflow: hidden;
 		height: 100%;
@@ -170,38 +227,12 @@ header{
 		filter: opacity(0.7);
 	}
 
-	.landing-text-section{
-		position: absolute;
-	    top: 50%;
-	    transform: translateY(-50%);
-	    width: 100%;
-	    max-width: 1090px;
-	}
-
 	.landing-title{
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		font-size: 3.3rem;
-		padding: 0 2rem;
-
-		.cta{
-			display: block;
-		    font-size: 1.5rem;
-		    margin-top: 2rem;
-		    border: 3.5px solid #3f51b5;
-		    background: none;
-		    padding: .75rem 2rem;
-		    font-weight: 400;
-		    color: black;
-		    transition: .3s ease;
-		    cursor: pointer;
-
-		    &:hover{
-		    	background-color: #3f51b5;
-		    	color: white;
-		    }
-		}
+		color: white;
+		text-align: center;
+		font-family: "Playfair Display", sans-serif;
+		position: fixed;
+		transform: translateX(-50%) translateY(-50%);
 	}
 
 	.text-section{
@@ -214,6 +245,19 @@ header{
 		}
 		p{
 			font-size: 1.40rem;
+		}
+	}
+
+	.arrow{
+		position: absolute;
+		bottom: 1rem;
+		left: 50%;
+		transform: translateX(-50%);
+
+		.arrow-img{
+			height: 20px;
+			width: 20px;
+			cursor: pointer;
 		}
 	}
 }
@@ -229,6 +273,11 @@ header{
 		}
 		.text-section{
 			padding: 1.5rem .50rem;
+		}
+
+		.hero-header{
+			background-image: url(../img/Altamira,_La_Castellana_en_Caracas,_Venezuela.jpg);
+			background-position: bottom;
 		}
 	}
 }
@@ -270,6 +319,247 @@ main{
 
 		.tarifas-section .big-title, .form-section .big-title, .map-section .big-title{
 			margin-left: 0rem;
+		}
+	}
+}
+
+.img{
+	width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+.bienvenidos{
+	.bienvenidos-main-text{
+		margin-bottom: 3rem;
+		margin-top: 3rem;
+		&>*{
+			max-width: 540px;
+			text-align: center;
+			margin: 0 auto;
+		}
+		h2{
+			margin-bottom: 2rem;
+			font-size: 32px;
+		}
+		p{
+			font-size: 18px;
+		}
+	}
+
+	.img{
+		height: 600px;
+	}
+
+	.bienvenidos-img-container{
+		width: 100%;
+    height: 400px;
+    overflow: hidden;
+
+	.img{
+		width: 100%;
+    /* height: 300px; */
+    /* max-height: 100%; */
+    object-fit: cover;
+    /* height: 300px; */
+    height: 100%;
+	}
+	}
+}
+
+.lugar{
+	h2{
+		margin-bottom: 2rem;
+		margin-top: 1rem;
+	}
+}
+
+@media (min-width: 950px) {
+	.lugar{
+		display: grid;
+		grid-template-columns: 35% auto;
+
+		margin: 3rem 0;
+
+		.lugar-text-section{
+			margin-left: 3rem;
+			padding-top: 4rem;
+
+			h2{
+				font-size: 6rem;
+				margin-left: -5rem;
+			}
+
+			p{
+				margin-bottom: 1rem;
+
+				&:last-of-type{
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+
+.habitaciones{
+	.habitaciones-card-container{
+		padding: 1rem 0;
+		overflow: hidden;
+		width: calc(100vw - 2rem);
+		margin-left: -1rem;
+		.habitacion-card-hero{
+			display: flex;
+		margin-top: 1rem;
+		transition: .5s ease-in-out;
+		
+		}
+
+		.habitacion-card{
+			
+			box-shadow: 0 5px 15px rgba(0,0,0,.08);
+			margin-right: 1rem;
+			
+			img{
+				width: 100%;
+				aspect-ratio: 1/1;
+				width: calc(100vw - 2rem);
+			}
+
+			.habitacion-card-text{
+				padding: 20px;
+				h3{
+					padding: 16px 0;
+				}
+			}
+
+			
+		}
+
+		.carrousell-arrow{
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 10;
+
+			&#next{
+				right: 1rem;
+			}
+			&#previous{
+				left: 1rem;
+			}
+		}
+	}
+}
+
+
+@media (min-width:701px) {
+	.habitaciones {
+		.habitaciones-card-container{
+			width: calc(100vw - 6rem);
+			margin-left: 0;
+
+			.habitacion-card-hero{
+				margin-left: 0px;
+				padding: 4rem;
+			}
+
+			.habitacion-card{
+				position: absolute;
+				box-shadow: none;
+				width: calc(100% - 8rem);
+				img{
+					width: 100%;
+				}
+
+				&:first-of-type{
+					position: relative;
+					width: 100%;
+				}
+			}
+
+			.habitacion-card-text, .carrousell-arrow{
+				display: none;
+			}
+		}
+	}
+}
+
+@media (min-width:701px ) and (max-width:949px){
+	.habitaciones{
+		aside{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			justify-items: center;
+			grid-gap: 1rem;
+			padding-top: 2rem;
+			.name:hover{
+				color: black;
+				cursor: pointer;
+				p{
+					color: black;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width:950px){
+	.habitaciones{
+		display: grid;
+		grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+
+		.habitaciones-title{
+			grid-row: 1;
+    grid-column: 1/-1;
+		}
+
+		.name-section{
+			grid-row: 2;
+			grid-column: 1/2;
+			display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+			.name p{
+				text-align: center;
+				font-size: 1.6rem;
+				padding: 10px 20px;
+				cursor: pointer;
+
+				&:hover{
+					color: black;
+				}
+			}
+		}
+		.habitaciones-card-container{
+			grid-row: 2;
+
+			grid-column: 2/-1;
+			width: 100%;
+		}
+
+		.habitacion-card{
+			opacity: 0;
+			transition: .5s ease-out;
+
+			&.display{
+				opacity: 1;
+			}
+		}
+	}
+}
+
+@media (min-width:701px){
+	.habitaciones{
+		.habitacion-card{
+			opacity: 0;
+			transition: .5s ease-out;
+
+			&.display{
+				opacity: 1;
+			}
 		}
 	}
 }
@@ -514,10 +804,10 @@ section.map-section{
 
 footer{
 	padding: 0;
-	background-color: $main-color;
+	background-color: var(--color-background-dark);
 
 	.inside-footer{
-		padding: 2rem 1rem;
+		padding: 6rem 1rem;
 		color: white;
 
 
@@ -534,7 +824,93 @@ footer{
 		
 	}
 
+	p,h2{
+		color: white;
+	}
+	h2{
+		font-size: 2.5rem;
+		font-weight: 100;
+	}
+
+	form{
+
+		input{
+			width: 100%;
+			display: block;
+			background-color: var(--color-background-dark);
+			color: white;
 	
+			&[type=text], &[type=email]{
+				border: none;
+				
+				padding: 1rem 1rem;
+				margin-top: 1rem;
+				margin-bottom: 2rem;
+				border-bottom: 2px solid rgb(228, 228, 228);
+				font-family: "Lato", sans-serif;
+				text-transform: uppercase;
+	
+				&:focus{
+					outline-color: transparent;
+					background-color: var(--color-background-dark);
+					outline: none;
+				}
+			}
+	
+			&[type=submit]{
+				background-color: black;
+				border: none;
+				color: white;
+				border-radius: 1px solid black;
+				padding: 1rem 1rem;
+				cursor: pointer;
+				font-weight: 700;
+	
+			}
+		}
+
+		label{
+			width: 100%;
+			display: block;
+			position: relative;
+		}
+		.input-placeholder{
+            position: absolute;
+            bottom: 50%;
+            transform: translateY(50%);
+            left: 1rem;
+            transition: .3s ease;
+            color: rgb(182, 182, 182);
+			color: white;
+            pointer-events: none;
+            
+        }
+
+        input:focus + span, input.username__input:valid + span{
+            bottom: 100%;  
+            font-size: 55%;
+            font-weight: 400;
+        }
+		
+		button{
+			background-color: transparent;
+			border: 1px solid white;
+			padding: 1rem 2rem;
+			font-family: "Lato", sans-serif;
+			color: white;
+			font-size: 1rem;
+		}
+	}
+	
+	.sobre-mi-contactame{
+		h2{
+			margin-bottom: 1rem;
+		}
+
+		.group{
+			margin-bottom: 1rem;
+		}
+	}
 }
 
 @media only screen and (min-width: 1090px){
@@ -556,4 +932,29 @@ footer{
 			}
 		}
 	}
+}
+
+@keyframes loader{
+	from{
+		top: 0;
+	}
+	to{
+		top: -100vh;
+	}
+}
+
+
+.loader{
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	overflow: hidden;
+	animation: loader 1s ease-out forwards 2s;
 }
