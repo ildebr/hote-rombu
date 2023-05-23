@@ -13,10 +13,19 @@
   position: relative;
 }
 
+body.hideScroll::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --main-header-height: 88vh;
-  --text-color: #2b2b2b;
+  --text-color: white;
   --color-background-dark: #222223;
+  --top-value: 0;
+}
+
+body {
+  background-color: #2c3a33;
 }
 
 h2 {
@@ -37,7 +46,7 @@ p {
   font-size: 2.9rem;
   margin-bottom: 1rem;
   max-width: 11ch;
-  color: black;
+  color: white;
 }
 
 .sobre-el-hotel {
@@ -62,23 +71,22 @@ p {
 nav.scroll-visible {
   position: fixed;
   top: -500px;
-  background-color: white;
-  color: black;
+  background-color: #2c3a33;
+  color: white;
   border-bottom: none;
-  box-shadow: 2px 0px 11px #b7b7b7;
-  background-color: white;
+  border-bottom: 1px solid white;
 }
 
 nav.scroll-visible .menu {
-  background-color: white;
-  color: black;
+  background-color: #2c3a33;
+  color: white;
 }
 
 nav.scroll-visible.show {
   top: 0;
 }
 nav.scroll-visible.show h2 {
-  color: black;
+  color: white;
 }
 
 @media only screen and (min-width: 600px) {
@@ -91,15 +99,20 @@ nav.scroll-visible.show h2 {
 }
 .nav-container {
   width: 100%;
-  max-width: 1800px;
+  max-width: 2200px;
   margin: 0 auto;
   position: absolute;
   top: 0;
   z-index: 10;
   transition: 1s ease;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.nav-container.scroll-visible .nav .navigation-links .link a {
-  color: black;
+.nav-container.scroll-visible .nav .navigation-links .link a, .nav-container.scroll-visible .nav .navigation-links .link button {
+  color: white;
+}
+.nav-container.scroll-visible .nav .navigation-links a {
+  color: white;
 }
 .nav-container .nav {
   padding: 0.75rem 2rem;
@@ -112,7 +125,7 @@ nav.scroll-visible.show h2 {
 .nav-container .nav .navigation-links {
   display: none;
 }
-.nav-container .nav .navigation-links a {
+.nav-container .nav .navigation-links a, .nav-container .nav .navigation-links button {
   margin-left: 1rem;
   color: white;
   text-decoration: none;
@@ -120,11 +133,14 @@ nav.scroll-visible.show h2 {
   font-size: 16px;
   font-family: "Playfair Display", serif;
   transition: 1s ease;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
 }
-.nav-container .nav .navigation-links a::after {
+.nav-container .nav .navigation-links a::after, .nav-container .nav .navigation-links button::after {
   content: "";
   width: 0px;
-  height: 10px;
+  height: 3px;
   background-color: #2f3f56;
   position: absolute;
   left: 0;
@@ -134,8 +150,26 @@ nav.scroll-visible.show h2 {
 .nav-container .nav h2 {
   color: white;
 }
-.nav-container .nav div.link:hover a::after {
+.nav-container .nav div.link:hover a::after, .nav-container .nav div.link:hover button::after {
   width: 100%;
+}
+
+.noHighlight {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.noSelect:focus {
+  outline: none !important;
+}
+
+.page-container {
+  background-color: #2c3a33;
 }
 
 @media only screen and (min-width: 1150px) {
@@ -179,8 +213,10 @@ header .hero-header {
   top: 0;
   left: 0;
   background-image: url(../img/avila-vertical.jpg);
+  background-position-x: center;
   background-size: cover;
   background-position: 0 0;
+  background-position-x: center;
   filter: brightness(0.7);
 }
 header picture {
@@ -202,6 +238,9 @@ header .landing-title {
   position: fixed;
   transform: translateX(-50%) translateY(-50%);
 }
+header .landing-title p {
+  display: inline;
+}
 header .text-section {
   background-color: #2f3f56;
   color: white;
@@ -219,11 +258,18 @@ header .arrow {
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
+  cursor: pointer;
 }
 header .arrow .arrow-img {
   height: 20px;
   width: 20px;
   cursor: pointer;
+  filter: invert(1);
+  transition: 0.3s ease;
+}
+header .arrow .arrow-img:hover {
+  scale: 1.4;
+  padding-top: 8px;
 }
 
 @media only screen and (orientation: landscape) {
@@ -232,7 +278,7 @@ header .arrow .arrow-img {
     padding-bottom: 0;
   }
   header .landing-title {
-    max-width: 20ch;
+    max-width: 15ch;
   }
   header .text-section {
     padding: 1.5rem 0.5rem;
@@ -279,7 +325,7 @@ main > * {
 
 .bienvenidos .bienvenidos-main-text {
   margin-bottom: 3rem;
-  margin-top: 3rem;
+  padding-top: 3rem;
 }
 .bienvenidos .bienvenidos-main-text > * {
   max-width: 540px;
@@ -341,6 +387,8 @@ main > * {
   overflow: hidden;
   width: calc(100vw - 2rem);
   margin-left: -1rem;
+  touch-action: none;
+  overflow: visible;
 }
 .habitaciones .habitaciones-card-container .habitacion-card-hero {
   display: flex;
@@ -348,7 +396,7 @@ main > * {
   transition: 0.5s ease-in-out;
 }
 .habitaciones .habitaciones-card-container .habitacion-card {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 11px 20px rgba(0, 0, 0, 0.38);
   margin-right: 1rem;
 }
 .habitaciones .habitaciones-card-container .habitacion-card img {
@@ -358,6 +406,7 @@ main > * {
 }
 .habitaciones .habitaciones-card-container .habitacion-card .habitacion-card-text {
   padding: 20px;
+  color: white;
 }
 .habitaciones .habitaciones-card-container .habitacion-card .habitacion-card-text h3 {
   padding: 16px 0;
@@ -367,12 +416,18 @@ main > * {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
+  cursor: pointer;
+  filter: invert(1);
 }
 .habitaciones .habitaciones-card-container .carrousell-arrow#next {
   right: 1rem;
 }
 .habitaciones .habitaciones-card-container .carrousell-arrow#previous {
   left: 1rem;
+}
+
+.name-section {
+  display: none;
 }
 
 @media (min-width: 701px) {
@@ -490,6 +545,17 @@ section.bullet-points .subtext {
 }
 section.bullet-points .text {
   font-size: 1.3rem;
+}
+section.bullet-points .subtext, section.bullet-points .text {
+  color: white;
+}
+section.bullet-points .review-photo {
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 
 @media only screen and (orientation: landscape) and (min-width: 750px) {
@@ -743,19 +809,20 @@ footer form input:focus + span, footer form input.username__input:valid + span {
   font-size: 55%;
   font-weight: 400;
 }
-footer form button {
+footer .sobre-mi-contactame h2 {
+  margin-bottom: 1rem;
+}
+footer .sobre-mi-contactame .group {
+  margin-bottom: 1rem;
+}
+
+.page-button {
   background-color: transparent;
   border: 1px solid white;
   padding: 1rem 2rem;
   font-family: "Lato", sans-serif;
   color: white;
   font-size: 1rem;
-}
-footer .sobre-mi-contactame h2 {
-  margin-bottom: 1rem;
-}
-footer .sobre-mi-contactame .group {
-  margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 1090px) {
@@ -795,6 +862,167 @@ footer .sobre-mi-contactame .group {
   z-index: 1000;
   overflow: hidden;
   animation: loader 1s ease-out forwards 2s;
+}
+
+.reserva {
+  position: absolute;
+  top: -100vh;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 20;
+  background-color: var(--color-background-dark);
+  transition: 0.5s ease-in-out;
+}
+.reserva.show {
+  top: var(--top-value);
+}
+.reserva * {
+  color: white;
+}
+.reserva .form__reserva__container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+}
+.reserva form {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reserva form label {
+  display: flex;
+}
+.reserva form label input {
+  flex-grow: 1;
+}
+.reserva form input {
+  background: var(--color-background-dark);
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-family: "Playfair Display";
+  font-size: 1rem;
+  border: navajowhite;
+  border-bottom: 2px solid white;
+  cursor: pointer;
+}
+.reserva form button {
+  cursor: pointer;
+}
+.reserva nav button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@keyframes letters {
+  0% {
+    top: 4rem;
+  }
+  100% {
+    top: 0rem;
+  }
+}
+.parentSpan {
+  display: inline-block;
+  overflow: hidden;
+  font-family: inherit;
+}
+.parentSpan .innerSpan {
+  font-family: inherit;
+  position: relative;
+  top: 4rem;
+  animation: letters 0.5s ease-in-out forwards;
+}
+
+section.habitaciones {
+  overflow-x: hidden;
+}
+
+.restaurant-page {
+  text-align: center;
+}
+.restaurant-page .general-header {
+  font-size: 32px;
+  color: white;
+  margin-bottom: 1rem;
+}
+.restaurant-page .subtext {
+  padding: 1rem 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.restaurant-page .horario {
+  display: grid;
+  max-width: 500px;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  padding: 1rem 0;
+  border-bottom: 1px solid white;
+}
+.restaurant-page .horario .horario-nombre {
+  text-align: left;
+  color: white;
+}
+.restaurant-page .horario .horario-descripcion {
+  text-align: right;
+}
+.restaurant-page .horario .horario-descripcion-elemento:nth-of-type(2) {
+  margin-top: 1rem;
+}
+.restaurant-page .menus-section-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+.restaurant-page .menus-section-options .menu-section-option {
+  aspect-ratio: 2/1;
+  position: relative;
+}
+.restaurant-page .menus-section-options .menu-section-option .menu-section-option-header {
+  text-align: left;
+  padding: 1rem;
+  font-size: clamp(1.25rem, 1.0227rem + 0.6061vw, 1.75rem);
+}
+.restaurant-page .menus-section-options .menu-section-option .background-img {
+  background-image: url(../img/rest1.jpg);
+  background-size: 100%;
+  background-position: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: brightness(0.6);
+  height: 100%;
+}
+
+.logo-link {
+  font-family: "Playfair Display", serif;
+  color: white;
+  text-decoration: none;
+}
+
+@media (min-width: 850px) {
+  section.general-description-section {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-gap: 2rem;
+    padding: 4rem 0;
+  }
+  .menus-section-header {
+    margin-bottom: 2rem;
+  }
+  .menus-section {
+    margin-bottom: 2rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

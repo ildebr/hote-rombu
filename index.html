@@ -34,13 +34,16 @@ https://poesishotel.it/ -->
 	<div class="container">
 		<nav class="nav-container">
 			<div class="nav">
-				<h2>Rombu</h2>
+				<h2><a class="logo-link" href="index.html">Rombu</a></h2>
 				<div class="navigation-links">
 					<div class="link">
-						<a href="#">Restaurante</a>
+						<a href="restaurant.html">Restaurante</a>
 					</div>
-					<div class="link">
+					<!-- <div class="link">
 						<a href="#">Habitaciones</a>
+					</div> -->
+					<div class="link">
+						<button class="res-button" id="reserva-button">Reservar</button>
 					</div>
 				</div>
 			</div>
@@ -48,13 +51,16 @@ https://poesishotel.it/ -->
 
 		<nav class="nav-container scroll-visible">
 			<div class="nav">
-				<h2>Rombu</h2>
+				<h2><a class="logo-link" href="index.html">Rombu</a></h2>
 				<div class="navigation-links">
 					<div class="link">
-						<a href="#">Restaurante</a>
+						<a href="restaurant.html">Restaurante</a>
 					</div>
-					<div class="link">
+					<!-- <div class="link">
 						<a href="#">Habitaciones</a>
+					</div> -->
+					<div class="link">
+						<button class="res-button" id="reserva-button">Reservar</button>
 					</div>
 				</div>
 				</div>
@@ -81,7 +87,7 @@ https://poesishotel.it/ -->
 			</div>
 		</header>
 
-		<main>
+		<main class="page-container">
 			<section class="bienvenidos">
 				<div class="bienvenidos-main-text">
 					<h2>Bienvenido al hotel Rombu</h2>
@@ -109,19 +115,19 @@ https://poesishotel.it/ -->
 
 
 			<section class="habitaciones">
-				<h2 class="habitaciones-title">Duerme en una de las habitaciones de nuestro hotel</h2>
+				<h2 class="habitaciones-title big-title">Nuestras habitaciones</h2>
 
 				<aside class="name-section">
-					<div class="name" id="superior">
+					<div class="name noHighlight" id="superior">
 						<p>Superior</p>
 					</div>
-					<div class="name" id="duplex-superior">
+					<div class="name noHighlight" id="duplex-superior">
 						<p>Duplex Superior</p>
 					</div>
-					<div class="name" id="deluxe">
+					<div class="name noHighlight" id="deluxe">
 						<p>Deluxe</p>
 					</div>
-					<div class="name" id="duplex-deluxe">
+					<div class="name noHighlight" id="duplex-deluxe">
 						<p>Duplex Deluxe</p>
 					</div>
 				</aside>
@@ -187,21 +193,21 @@ https://poesishotel.it/ -->
 				<div class="bullets" >
 					<div class="bullet" data-aos="fade-up">
 					<!-- <div class="circle"></div> -->
-					<img src="img/circle.svg" class="svg-circle">
+					<img src="img/man.webp" class="review-photo">
 					<p class="subtext">Rosalia Pereira</p>
 					<p class="text">
 						Un gran espacio, muy bonito y con una excelente atención al cliente. Definitivamente volvere de nuevo
 					</p>
 				</div>
 				<div class="bullet" data-aos="fade-up">
-					<div class="circle"></div>
+					<img src="img/man.webp" class="review-photo">
 					<p class="subtext">CONNECT</p>
 					<p class="text">
 						An infimate enviroment creates space for vulnerability and connections.
 					</p>
 				</div>
 				<div class="bullet" data-aos="fade-up">
-					<div class="circle"></div>
+					<img src="img/man.webp" class="review-photo">
 					<p class="subtext">Adele Chiquinquira</p>
 					<p class="text">
 						Ambiente agradable para los niños y que tambien incluye espacio para los adultos divertirse.
@@ -276,7 +282,7 @@ https://poesishotel.it/ -->
 							<input type="text" name="email" class="username__input" required="" fdprocessedid="kfgij">
 							<span class="input-placeholder">INTRODUCE TU CORREO</span>
 						</label>
-						<button>
+						<button class="page-button">
 							SUSCRIBETE
 						</button>
 					</form>
@@ -294,6 +300,34 @@ https://poesishotel.it/ -->
 				</div>
 			</div>
 		</footer>
+	</div>
+
+
+	<div class="reserva">
+		<nav>
+			<div class="nav-container">
+				<div class="nav">
+					<h2>Rombu</h2>
+					<button class="reserva-button res-button" id="reserva-button">CERRAR</button>
+				</div>
+			</div>
+		</nav>
+
+		<form>
+			<div class="form__reserva__container">
+				<input type="date">
+				<input type="date">
+				<label for="adultos">
+					<span>ADULTOS: </span><input type="number" id="adultos" >
+				</label>
+				<label for="ninos">
+					<span>NINOS: </span><input type="number" id="ninos" >
+				</label>
+				<input type="text" placeholder="CODIGO PROMOCIONAL">
+				<button class="page-button" value="RESERVAR">RESERVAR</button>
+			</div>
+		</form>
+
 	</div>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>

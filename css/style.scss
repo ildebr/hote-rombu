@@ -19,10 +19,21 @@ $sm-pad: 0 1rem;
 $max-w: 1090px;
 $def-marg: 0 auto;
 
+body.hideScroll::-webkit-scrollbar {
+    display: none;
+}
+
 :root{
 	--main-header-height: 88vh;
-	--text-color: #2b2b2b;
+	// --text-color: #2b2b2b;
+	--text-color: white;
 	--color-background-dark: #222223;
+
+	--top-value: 0;
+}
+
+body{
+	background-color: #2c3a33;
 }
 
 h2{
@@ -43,7 +54,7 @@ p{
 	font-size: 2.9rem;
 	margin-bottom: 1rem;
 	max-width: 11ch;
-	color: black;
+	color: white;
 }
 
 .sobre-el-hotel{
@@ -71,21 +82,20 @@ p{
 nav.scroll-visible {
   position: fixed;
   top: -500px;
-  background-color: white;
-  color: black;
+  background-color: #2c3a33;
+  color: white;
   border-bottom: none;
-  box-shadow: 2px 0px 11px #b7b7b7;
-  background-color: white;
+  border-bottom: 1px solid white;
 }
 nav.scroll-visible .menu {
-  background-color: white;
-  color: black;
+  background-color: #2c3a33;
+  color: white;
 }
 nav.scroll-visible.show {
   top: 0;
 
   h2{
-	color: black;
+	color: white;
   }
 }
 
@@ -100,16 +110,25 @@ nav.scroll-visible.show {
 
 .nav-container{
 	width: 100%;
-	max-width: 1800px;
+	max-width: 2200px;
 	margin: $def-marg;
 	position: absolute;
 	top: 0;
 	z-index: 10;
 	transition: 1s ease;
+	left: 50%;
+	transform: translateX(-50%);
 
 	&.scroll-visible{
-		.nav .navigation-links .link a{
-			color: black;
+		.nav .navigation-links .link a,.nav .navigation-links .link button{
+			color: white;
+		}
+		.nav{
+			.navigation-links{
+				a{
+					color: white;
+				}
+			}
 		}
 	}
 
@@ -126,7 +145,7 @@ nav.scroll-visible.show {
 		.navigation-links{
 			display: none;
 
-			a{
+			a, button{
 				margin-left: 1rem;
 				color: white;
 			    text-decoration: none;
@@ -134,12 +153,15 @@ nav.scroll-visible.show {
 			    font-size: 16px;
 				font-family: "Playfair Display", serif;
 			    transition: 1s ease;
+				background-color: transparent;
+				border: 0;
+				cursor: pointer;
 
 
 			    &::after{
 			    	content: "";
 			    	width: 0px;
-			    	height: 10px;
+			    	height: 3px;
 			    	background-color: $main-color;
 			    	position: absolute;
 			    	left: 0;
@@ -152,10 +174,27 @@ nav.scroll-visible.show {
 			color: white;
 		}
 
-		div.link:hover a::after{
+		div.link:hover a::after, div.link:hover button::after{
 			width: 100%;
 		}
 	}
+}
+
+.noHighlight {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.noSelect:focus {
+    outline: none !important;
+}
+
+.page-container{
+	background-color: #2c3a33;
 }
 
 @media only screen and (min-width: 1150px){
@@ -206,8 +245,10 @@ header{
 	top: 0;
 	left: 0;
 	background-image: url(../img/avila-vertical.jpg);
+	background-position-x: center;
 	background-size: cover;
 	background-position: 0 0;
+	background-position-x: center;
 	
 	// animation: header-img 8s steps(1, start) 3s infinite;
 	filter: brightness(.7);
@@ -233,6 +274,10 @@ header{
 		font-family: "Playfair Display", sans-serif;
 		position: fixed;
 		transform: translateX(-50%) translateY(-50%);
+
+		p{
+			display: inline;
+		}
 	}
 
 	.text-section{
@@ -253,11 +298,19 @@ header{
 		bottom: 1rem;
 		left: 50%;
 		transform: translateX(-50%);
+		cursor: pointer;
 
 		.arrow-img{
 			height: 20px;
 			width: 20px;
 			cursor: pointer;
+			filter: invert(1);
+			transition: .3s ease;
+
+			&:hover{
+				scale: 1.4;
+				padding-top: 8px;
+			}
 		}
 	}
 }
@@ -268,7 +321,7 @@ header{
 		padding-bottom: 0;
 
 		.landing-title{
-			max-width: 20ch;
+			max-width: 15ch;
 
 		}
 		.text-section{
@@ -331,7 +384,7 @@ main{
 .bienvenidos{
 	.bienvenidos-main-text{
 		margin-bottom: 3rem;
-		margin-top: 3rem;
+		padding-top: 3rem;
 		&>*{
 			max-width: 540px;
 			text-align: center;
@@ -407,6 +460,8 @@ main{
 		overflow: hidden;
 		width: calc(100vw - 2rem);
 		margin-left: -1rem;
+		touch-action: none;
+    overflow: visible;
 		.habitacion-card-hero{
 			display: flex;
 		margin-top: 1rem;
@@ -416,8 +471,8 @@ main{
 
 		.habitacion-card{
 			
-			box-shadow: 0 5px 15px rgba(0,0,0,.08);
-			margin-right: 1rem;
+			box-shadow: 0 11px 20px rgb(0 0 0 / 38%);
+    		margin-right: 1rem;
 			
 			img{
 				width: 100%;
@@ -427,6 +482,7 @@ main{
 
 			.habitacion-card-text{
 				padding: 20px;
+				color: white;
 				h3{
 					padding: 16px 0;
 				}
@@ -440,6 +496,8 @@ main{
 			top: 50%;
 			transform: translateY(-50%);
 			z-index: 10;
+			cursor: pointer;
+			filter: invert(1);
 
 			&#next{
 				right: 1rem;
@@ -451,6 +509,9 @@ main{
 	}
 }
 
+.name-section{
+	display: none;
+}
 
 @media (min-width:701px) {
 	.habitaciones {
@@ -503,6 +564,7 @@ main{
 		}
 	}
 }
+
 
 @media (min-width:950px){
 	.habitaciones{
@@ -590,6 +652,19 @@ section.bullet-points{
 	}
 	.text{
 		font-size: 1.3rem;
+	}
+
+	.subtext, .text{
+		color: white;
+	}
+
+	.review-photo{
+		border-radius: 50%;
+		overflow: hidden;
+		object-fit: cover;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
 	}
 }
 
@@ -892,14 +967,7 @@ footer{
             font-weight: 400;
         }
 		
-		button{
-			background-color: transparent;
-			border: 1px solid white;
-			padding: 1rem 2rem;
-			font-family: "Lato", sans-serif;
-			color: white;
-			font-size: 1rem;
-		}
+		
 	}
 	
 	.sobre-mi-contactame{
@@ -911,6 +979,15 @@ footer{
 			margin-bottom: 1rem;
 		}
 	}
+}
+
+.page-button{
+	background-color: transparent;
+	border: 1px solid white;
+	padding: 1rem 2rem;
+	font-family: "Lato", sans-serif;
+	color: white;
+	font-size: 1rem;
 }
 
 @media only screen and (min-width: 1090px){
@@ -957,4 +1034,202 @@ footer{
 	z-index: 1000;
 	overflow: hidden;
 	animation: loader 1s ease-out forwards 2s;
+}
+
+
+.reserva{
+	position: absolute;
+	top: -100vh;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	z-index: 20;
+	background-color: var(--color-background-dark);
+	transition: .5s ease-in-out;
+
+	&.show{
+		top: var(--top-value);
+	}
+
+	*{
+		color: white;
+	}
+
+	.form__reserva__container{
+		display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 0 auto;
+	max-width: 500px;
+    width: 100%;
+	}
+	form{
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		label{
+			display: flex;
+
+			input{
+				flex-grow: 1;
+			}
+		}
+
+	input{
+		background: var(--color-background-dark);
+		margin-bottom: 2rem;
+		padding-bottom: .5rem;
+		text-align: center;
+		font-family: 'Playfair Display';
+		font-size: 1rem;
+		border: navajowhite;
+		border-bottom: 2px solid white;
+		cursor: pointer;
+	}
+	button{
+		cursor: pointer;
+	}
+	}
+
+	nav{
+		button{
+			background-color: transparent;
+			border: none;
+			color: white;
+			font-family: "Playfair Display", serif;
+			font-weight: 600;
+			cursor: pointer;
+		}
+	}
+}
+
+@keyframes letters{
+	0%{
+		top: 4rem;
+	}
+
+	100%{
+		top: 0rem;
+	}
+}
+
+.parentSpan{
+	display: inline-block;
+	overflow: hidden;
+	font-family: inherit;
+
+	.innerSpan{
+		font-family: inherit;
+		position: relative;
+		top: 4rem;
+
+		animation: letters .5s ease-in-out forwards;
+
+	}
+
+	// @for $i from 1 to 60 {
+	// 	// &:nth-child(#{$i}) .innerSpan { animation-delay:calc(3s + calc( $i * .2s ) ); }
+	// 	& .innerSpan:nth-of-type(#{$i}) { animation-delay:calc(3s + calc( $i * .2s ) ); }
+	// }
+}
+
+
+section.habitaciones{
+	overflow-x: hidden;
+}
+
+
+
+// restaurant.html
+
+.restaurant-page{
+	text-align: center;
+	.general-header{
+		font-size: 32px;
+		color: white;
+		margin-bottom: 1rem;
+	}
+
+	.subtext{
+		padding: 1rem 0;
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	.horario{
+		display: grid;
+		max-width: 500px;
+		grid-template-columns: 1fr 1fr;
+		margin: 0 auto;
+		padding: 1rem 0;
+		border-bottom: 1px solid white;
+
+		.horario-nombre{
+			text-align: left;
+			color: white;
+		}
+		.horario-descripcion{
+			text-align: right;
+		}
+
+		.horario-descripcion-elemento:nth-of-type(2){
+			margin-top: 1rem;
+		}
+
+		
+	}
+
+	.menus-section-options{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 1rem;
+
+		.menu-section-option{
+			aspect-ratio: 2/1;
+			position: relative;
+			.menu-section-option-header{
+				text-align: left;
+				padding: 1rem;
+				font-size: clamp(1.25rem,1.0227rem + .6061vw,1.75rem);
+			}
+
+			.background-img{
+				background-image: url(../img/rest1.jpg);
+			background-size: 100%;
+    		background-position: center;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			filter: brightness(0.6);
+			height: 100%;
+			}
+		}
+	}
+}
+
+.logo-link{
+	font-family: "Playfair Display", serif;
+	color: white;
+	text-decoration: none;
+}
+
+
+@media (min-width: 850px) {
+	section.general-description-section{
+		display: grid;
+		grid-template-columns: 30% 70%;
+		grid-gap: 2rem;
+		padding: 4rem 0;
+	}
+
+	.menus-section-header{
+		margin-bottom: 2rem;
+	}
+
+	.menus-section{
+		margin-bottom: 2rem;
+	}
 }

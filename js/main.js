@@ -134,7 +134,7 @@ tagnames.forEach((tag) => {tag.addEventListener("click", showElement)})
 const web_header = document.querySelector(".website-header")
 const img_header = document.querySelector(".hero-header")
 const imgheadertime = gsap.timeline({paused: true})
-imgheadertime.fromTo(img_header,{backgroundPositionY: 0}, {backgroundPositionY: '+40vh', duration:1, ease:'SlowMo'},0);
+imgheadertime.fromTo(img_header,{backgroundPositionY: 0, backgroundSize: '115%'}, {backgroundPositionY: '+40vh', backgroundSize: '140%', duration:1, ease:'SlowMo'},0);
 // imgheadertime.fromTo(img_header,{backgroundPositionY: '0vh'}, {backgroundPositionY: '-70vh', duration:1, ease:'SlowMo'},0);
 
 
@@ -146,3 +146,57 @@ const imgScroll = ScrollTrigger.create({
 //   markers: true,
   scrub: true
 })
+
+
+
+const reservab = document.querySelectorAll(".res-button")
+const reservac = document.querySelector(".reserva")
+const bodyEl = document.querySelector("body")
+
+reservab.forEach((res) => res.addEventListener('click', function(e){
+	var r = document.querySelector(':root');
+	var rs = getComputedStyle(r);
+	r.style.setProperty('--top-value', window.scrollY + 'px');
+	reservac.classList.toggle('show')
+	bodyEl.classList.toggle('hideScroll')
+}))
+
+
+function appearAnimation(element){
+	toBeChanged = toBeChangedAux = document.querySelector(element)
+	stringsArray = toBeChanged.innerHTML.split(' ')
+	toBeChanged.innerHTML = ''
+	sumador = 0.1
+	base = 2.5
+	contador = 1
+	holder = stringsArray.map(e => {
+		ele = document.createElement('span');
+		ele.classList.add('parentSpan')
+
+		// eleInner = document.createElement('span')
+		// eleInner.classList.add('innerSpan')
+		// eleInner.innerHTML = e
+
+		console.log(e.split(''))
+		e.split('').map(letter => {
+			eleInner = document.createElement('span')
+			eleInner.classList.add('innerSpan')
+			eleInner.innerHTML = letter
+			eleInner.style.animationDelay = `${base + (sumador * contador++)}s`
+			ele.append(eleInner)
+		})
+
+		elenew = document.createElement('p')
+		elenew.innerHTML = ' '
+
+		
+
+		toBeChanged.append(ele)
+		toBeChanged.append(elenew)
+	}
+	)
+
+
+}
+
+window.onload = appearAnimation('.landing-title')

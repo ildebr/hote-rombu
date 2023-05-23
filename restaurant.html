@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rombu Hotel | Restaurant</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Rombu Hotel">
+  	<meta name="keywords" content="HTML, CSS, JavaScript, Hotel">
+  	<meta name="author" content="Ildebrando">
+	<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script defer src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+<script defer src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body class="restaurant-page">
+    <div class="loader">
+		<h1>Rombu</h1>
+	</div>
+
+    <div class="container">
+        <nav class="nav-container">
+			<div class="nav">
+				<h2><a class="logo-link" href="index.html">Rombu</a></h2>
+				<div class="navigation-links">
+					<div class="link">
+						<a href="restaurant.html">Restaurante</a>
+					</div>
+					<!-- <div class="link">
+						<a href="#">Habitaciones</a>
+					</div> -->
+					<div class="link">
+						<button class="res-button" id="reserva-button">Reservar</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<nav class="nav-container scroll-visible">
+			<div class="nav">
+				<h2><a class="logo-link" href="index.html">Rombu</a></h2>
+				<div class="navigation-links">
+					<div class="link">
+						<a href="restaurant.html">Restaurante</a>
+					</div>
+					<!-- <div class="link">
+						<a href="#">Habitaciones</a>
+					</div> -->
+					<div class="link">
+						<button class="res-button" id="reserva-button">Reservar</button>
+					</div>
+				</div>
+				</div>
+			
+		</nav>
+
+        <header class="website-header">
+
+			<div class="hero-header"></div>
+			<div class="landing-text-section">
+				<h1 class="landing-title">Restaurante
+				</h1>
+
+			</div>
+			<div class="arrow">
+				<img src="img/arrow.svg" class="arrow-img" alt="">
+			</div>
+		</header>
+
+        <main class="page-container">
+            <section class="general-description-section">
+                <div class="general-text">
+                    <h3 class="general-header">
+                        Tiempo de despertar tus sentidos
+                    </h3>
+
+                    <p class="subtext">Disfruta de las mejores comidas desde que despiertas hasta que te acuestas. Nuestro chef de clase mundial se asegurara de que comas lo mejor de lo mejor.</p>
+                    <div class="horarios">
+                        <div class="horario">
+                            <div class="horario-nombre">
+                                Desayuno
+                            </div>
+                            <div class="horario-descripcion">
+                                <div class="horario-descripcion-elemento">
+                                    <p>Monday to Friday</p>
+                                    <p>07:00 AM - 10:00 AM</p>
+                                </div>
+                                <div class="horario-descripcion-elemento">
+                                    <p>Monday to Friday</p>
+                                    <p>07:00 AM - 10:00 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="horario">
+                            <div class="horario-nombre">
+                                Bar Buenas Noches
+                            </div>
+                            <div class="horario-descripcion">
+                                <div class="horario-descripcion-elemento">
+                                    <p>Monday to Friday</p>
+                                    <p>07:00 AM - 10:00 AM</p>
+                                </div>
+                                <div class="horario-descripcion-elemento">
+                                    <p>Monday to Friday</p>
+                                    <p>07:00 AM - 10:00 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="horario">
+                            <div class="horario-nombre">
+                                Informacion de contacto
+                            </div>
+                            <div class="horario-descripcion">
+                                <div class="horario-descripcion-elemento">
+                                    <p>Monday to Friday</p>
+                                    <p>07:00 AM - 10:00 AM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="general-image-container">
+
+                    <img class="img" src="img/chef.jpg" alt="">
+                </div>
+            </section>
+
+            <section class="general-description-section">
+                <div class="general-text">
+                    <h3 class="general-header">
+                        Bar Buenas Noches
+                    </h3>
+                    <div class="general-description">
+
+                    </div>
+                    <div class="general-img">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div class="general-image-container">
+                    <img class="img" src="img/bar.jpg" alt="">
+                </div>
+            </section>
+
+
+            <section class="menus-section">
+                <div class="menus-section-header">
+                    <h2>Nuestro menu</h2>
+                    <p>
+                        Descubre lo que esta preparando nuestro chef.
+                    </p>
+                </div>
+
+                <div class="menus-section-options">
+                    <div class="menu-section-option">
+                        <div class="background-img"></div>
+                        <div class="menu-section-option-header">
+                            <p>Menu restaurante</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="menu-section-option">
+                        <div class="background-img"></div>
+                        <div class="menu-section-option-header">
+                            <p>Menu restaurante</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <section class="instagram-section">
+                
+            </section>
+        </main>
+
+        <footer>
+			<div class="inside-footer">
+				<div class="sobre-mi">
+					<h2>Newsletter</h2>
+					<form>
+						<label for="username">
+							<input type="text" name="username" class="username__input" required="" fdprocessedid="kfgij">
+							<span class="input-placeholder">INTRODUCE TU NOMBRE</span>
+						</label>
+						<label for="text">
+							<input type="text" name="email" class="username__input" required="" fdprocessedid="kfgij">
+							<span class="input-placeholder">INTRODUCE TU CORREO</span>
+						</label>
+						<button class="page-button">
+							SUSCRIBETE
+						</button>
+					</form>
+				</div>
+				<div class="sobre-mi-contactame">
+					<h2>Contacto:</h2>
+					<div class="group">
+						<p>CALLE RAMONA, 24</p>
+					<p>BUCAREST</p>
+					</div>
+
+					<p>(+205) 123 456 789</p>
+					<p>INFO@ROMBU.COM</p>
+					<P>RRRHH@ROMBU.COM</P>
+				</div>
+			</div>
+		</footer>
+
+        <div class="reserva">
+            <nav>
+                <div class="nav-container">
+                    <div class="nav">
+                        <h2>Rombu</h2>
+                        <button class="reserva-button res-button" id="reserva-button">CERRAR</button>
+                    </div>
+                </div>
+            </nav>
+    
+            <form>
+                <div class="form__reserva__container">
+                    <input type="date">
+                    <input type="date">
+                    <label for="adultos">
+                        <span>ADULTOS: </span><input type="number" id="adultos" >
+                    </label>
+                    <label for="ninos">
+                        <span>NINOS: </span><input type="number" id="ninos" >
+                    </label>
+                    <input type="text" placeholder="CODIGO PROMOCIONAL">
+                    <button class="page-button" value="RESERVAR">RESERVAR</button>
+                </div>
+            </form>
+    
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+        <script src="https://assets.codepen.io/16327/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="js/main.js"></script>
+    </div>
+</body>
+</html>
