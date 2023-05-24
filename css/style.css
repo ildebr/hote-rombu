@@ -172,6 +172,10 @@ nav.scroll-visible.show h2 {
   background-color: #2c3a33;
 }
 
+.restaurant-page main.page-container {
+  padding: 3rem 0;
+}
+
 @media only screen and (min-width: 1150px) {
   .nav-container .nav {
     padding-left: 0;
@@ -179,7 +183,10 @@ nav.scroll-visible.show h2 {
   }
 }
 @media only screen and (min-width: 600px) {
-  .nav-container .nav .navigation-links {
+  .nav-container .nav .navigation-links a, .nav-container .nav .navigation-links .res-button {
+    display: flex;
+  }
+  .navigation-links {
     display: flex;
   }
 }
