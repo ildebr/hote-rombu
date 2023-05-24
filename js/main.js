@@ -200,3 +200,36 @@ function appearAnimation(element){
 }
 
 window.onload = appearAnimation('.landing-title')
+
+
+const buttons = document.querySelectorAll(".button-three");
+const divbar = document.querySelector(".navbar-extended")
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const currentState = button.getAttribute("data-state");
+
+    if (!currentState || currentState === "closed") {
+      button.setAttribute("data-state", "opened");
+      button.setAttribute("aria-expanded", "true");
+	  divbar.setAttribute("data-state", "opened")
+    } else {
+      button.setAttribute("data-state", "closed");
+      button.setAttribute("aria-expanded", "false");
+	  divbar.setAttribute("data-state", "closed")
+    }
+  });
+});
+
+
+const fadelElements = document.querySelectorAll(".fadel")
+
+fadelElements.forEach((fadel, index) => {
+	span = document.createElement('span')
+	console.log(index)
+	span.innerHTML = fadel.textContent;
+	span.style.animationDelay = `${(0.2*index)}s`
+	span.classList.add('fadel__son')
+	fadel.innerHTML = ''
+	fadel.append(span)
+})

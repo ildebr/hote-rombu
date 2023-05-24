@@ -143,7 +143,9 @@ nav.scroll-visible.show {
 
 
 		.navigation-links{
-			display: none;
+			a,.res-button{
+				display: none;
+			}
 
 			a, button{
 				margin-left: 1rem;
@@ -1232,4 +1234,103 @@ section.habitaciones{
 	.menus-section{
 		margin-bottom: 2rem;
 	}
+}
+
+
+
+.button-three {
+    --button-color: white;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+    }
+  
+    .button-three .hamburger {
+    transition: translate 1s, rotate 1s;
+    }
+  
+    .button-three[aria-expanded="true"] .hamburger {
+    translate: 3px -1px;
+    rotate: 0.125turn;
+    }
+  
+    .button-three .line {
+    transition: 1s;
+    stroke-dasharray: 60 31 60 300;
+    }
+  
+    .button-three[aria-expanded="true"] .line {
+    stroke-dasharray: 60 105 60 300;
+    stroke-dashoffset: -90;
+    }
+
+@media (min-width:600px) {
+	.button-three{
+		display: none;
+	}
+}
+
+@keyframes slider-up {
+	0%{
+		top: 2rem
+	}
+
+	100%{
+		top: 0;
+	}
+}
+
+
+.navbar-extended{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	background-color: black;
+
+	&[data-state="opened"]{
+		display: flex;
+		animation: .5s slider-up ease forwards;
+
+		.fadel__son{
+			animation: letters 0.3s ease-in-out forwards;
+		}
+	}
+
+
+	
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+
+
+	a, button{
+		text-decoration: none;
+		border: none;
+		background-color: transparent;
+		color: white;
+		font-weight: 700;
+		font-size: 20px;
+
+	}
+
+	
+
+	.link:first-of-type{
+		margin-bottom: 1rem;
+	}
+
+	.fadel{
+		overflow: hidden;
+	}
+}
+
+.fadel{
+		overflow: hidden;
+		display: block;
+		&__son{
+			top: 3rem;
+		}
 }

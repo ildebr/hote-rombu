@@ -122,7 +122,7 @@ nav.scroll-visible.show h2 {
   max-width: 1090px;
   margin: 0 auto;
 }
-.nav-container .nav .navigation-links {
+.nav-container .nav .navigation-links a, .nav-container .nav .navigation-links .res-button {
   display: none;
 }
 .nav-container .nav .navigation-links a, .nav-container .nav .navigation-links button {
@@ -1023,6 +1023,86 @@ section.habitaciones {
   .menus-section {
     margin-bottom: 2rem;
   }
+}
+.button-three {
+  --button-color: white;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+}
+
+.button-three .hamburger {
+  transition: translate 1s, rotate 1s;
+}
+
+.button-three[aria-expanded=true] .hamburger {
+  translate: 3px -1px;
+  rotate: 0.125turn;
+}
+
+.button-three .line {
+  transition: 1s;
+  stroke-dasharray: 60 31 60 300;
+}
+
+.button-three[aria-expanded=true] .line {
+  stroke-dasharray: 60 105 60 300;
+  stroke-dashoffset: -90;
+}
+
+@media (min-width: 600px) {
+  .button-three {
+    display: none;
+  }
+}
+@keyframes slider-up {
+  0% {
+    top: 2rem;
+  }
+  100% {
+    top: 0;
+  }
+}
+.navbar-extended {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.navbar-extended[data-state=opened] {
+  display: flex;
+  animation: 0.5s slider-up ease forwards;
+}
+.navbar-extended[data-state=opened] .fadel__son {
+  animation: letters 0.3s ease-in-out forwards;
+}
+.navbar-extended a, .navbar-extended button {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+.navbar-extended .link:first-of-type {
+  margin-bottom: 1rem;
+}
+.navbar-extended .fadel {
+  overflow: hidden;
+}
+
+.fadel {
+  overflow: hidden;
+  display: block;
+}
+.fadel__son {
+  top: 3rem;
 }
 
 /*# sourceMappingURL=style.css.map */
